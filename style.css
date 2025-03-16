@@ -1,0 +1,35 @@
+ body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .nav-item {
+            list-style: none;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-item:hover {
+            color: #ffcc00;
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background: #ffcc00;
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-50%);
+        }
+        .nav-item:hover::after {
+            width: 100%;
+        }

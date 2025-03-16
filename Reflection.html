@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflection</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .nav-item {
+            list-style: none;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+            font-weight: 700;
+        }
+        .nav-item:hover {
+            color: #ffcc00;
+        }
+        .nav-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .reflection-text {
+            cursor: pointer;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+        .rating-container {
+            margin-top: 20px;
+            display: none;
+        }
+        .rating-container button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reflection</h1>
+    <ul class="navbar">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="lesson.html">Lessons</a></li>
+        <li class="nav-item"><a href="Events.html">Events</a></li>
+        <li class="nav-item"><a href="#">Reflection</a></li>
+        <li class="nav-item"><a href="Goodbye.html">Goodbye</a></li>
+    </ul>
+    
+    <p class="reflection-text" onclick="showRating()"> This learning journey taught me a lot of new things, at first I was overwhelmed by the information related to JavaScript, and I can't understand a thing, though I'm trying my best to analyze the info I just simply couldn't do it, but do you know what I did, I learned to adapt, I remembered why I like technology so much, it's because of the complex things and intricate process. I want to, when I realized that, instead of taking the info all in one scoop, I learned how to take info bits by bits, I will admit I'm not use to this type of learning but this really helps me to relate the things our teacher is teaching us in a new deeper level, I don't want to stop, I expand my knowledge fascinated by the complexity of technology and it's impact in our modern world. I also want to give thanks to my teacher Ms. Uminga because without her support and guidance I would never achieved the grades that I am getting now, so I'm so thankful for the efforts of our teacher just to ensure that we are getting the best of the best techniques and ways in coding, I also want to give thanks to my parents for supporting me in this roller coaster of a journey, they don't stop supporting me at any thing I want to do, and lastly I want to give gratitude to God for the challenges and obstacles he gave me to make myself improve. (Click Text for Rating.) </p>
+    
+    <div class="rating-container" id="ratingContainer">
+        <p>Rate your experience from 1 (Lowest) to 10 (Highest)</p>
+        <button onclick="showImage(1)">1</button>
+        <button onclick="showImage(2)">2</button>
+        <button onclick="showImage(3)">3</button>
+        <button onclick="showImage(4)">4</button>
+        <button onclick="showImage(5)">5</button>
+        <button onclick="showImage(6)">6</button>
+        <button onclick="showImage(7)">7</button>
+        <button onclick="showImage(8)">8</button>
+        <button onclick="showImage(9)">9</button>
+        <button onclick="showImage(10)">10</button>
+    </div>
+    
+    <div class="image-container" id="imageContainer">
+        <img id="feedbackImage" src="" alt="Feedback Image" style="display: none; width: 200px;">
+    </div>
+    
+    <script>
+        function showRating() {
+            document.getElementById("ratingContainer").style.display = "block";
+        }
+
+        function showImage(rating) {
+            let image = document.getElementById("feedbackImage");
+            if (rating >= 1 && rating <= 3) {
+                image.src = "sad.jpg";
+            } else if (rating >= 4 && rating <= 6) {
+                image.src = "happy.jfif";
+            } else if (rating >= 7 && rating <= 10) {
+                image.src = "superhappy.jpg";
+                confettiEffect();
+            }
+            image.style.display = "block";
+        }
+
+        function confettiEffect() {
+            let confetti = document.createElement("div");
+            confetti.innerHTML = "🎉";
+            confetti.style.position = "absolute";
+            confetti.style.top = Math.random() * window.innerHeight + "px";
+            confetti.style.left = Math.random() * window.innerWidth + "px";
+            confetti.style.fontSize = "30px";
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 2000);
+        }
+    </script>
+</body>
+</html>
