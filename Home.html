@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Navbar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@700&display=swap');
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .nav-item {
+            list-style: none;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+            font-weight: 700;
+        }
+        .nav-item:hover {
+            color: #ffcc00;
+        }
+        .nav-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .description-section {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+        }
+        .description-section img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px auto;
+            border: 5px solid white;
+            display: none;
+        }
+        .description-section p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 10px auto;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Website</h1>
+   <ul class="navbar">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="lesson.html">Lessons</a></li>
+        <li class="nav-item"><a href="Events.html">Events</a></li>
+        <li class="nav-item"><a href="#">Reflection</a></li>
+        <li class="nav-item"><a href="#">Goodbye</a></li>
+    </ul>
+
+    
+    <div class="description-section">
+        <h2>About Me (Click The Texts)</h2>
+        <img id="description-image" src="placeholder.jpg" alt="My Picture">
+        <p onclick="showImage(0)">I am a dedicated learner who always seeks improvement. Hard work, passion, and persistence help me grow daily in life.</p>
+        <img id="img1" src="student.jpg" alt="Student Image" style="display:none;">
+        <p onclick="showImage(1)">As a son, I respect and cherish my family. Their love, support, and guidance inspire me to be the best I can be.</p>
+        <img id="img2" src="family.jpg" alt="Family Image" style="display:none;">
+        <p onclick="showImage(2)">As a coder, I enjoy solving complex problems. Technology excites me, and coding helps me bring creative ideas into reality.</p>
+        <img id="img3" src="coder.jpg" alt="Coder Image" style="display:none;">
+        <p onclick="showImage(3)">Collaboration and teamwork are important to me. I love learning from others and growing together by sharing knowledge and experiences.</p>
+        <img id="img4" src="teamwork.jpg" alt="Teamwork Image" style="display:none;">
+        <p onclick="showImage(4)">Innovation and progress drive my ambition. I constantly seek challenges to improve, adapt, and make a positive impact on the world.</p>
+        <img id="img5" src="innovation.jpg" alt="Innovation Image" style="display:none;">
+    </div>
+    
+    <audio id="background-music" autoplay loop>
+        <source src="lobby.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        function showImage(index) {
+            let images = ["img1", "img2", "img3", "img4", "img5"];
+            images.forEach((img, i) => {
+                document.getElementById(img).style.display = (i === index) ? 'block' : 'none';
+            });
+        }
+    document.addEventListener("click", function() {
+        let audio = document.getElementById("background-music");
+        if (audio.paused) {
+            audio.play();
+        }
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farewell</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .nav-item {
+            list-style: none;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+            font-weight: 700;
+        }
+        .nav-item:hover {
+            color: #ffcc00;
+        }
+        .nav-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .farewell-message {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .play-music {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .play-music:hover {
+            background: #e6b800;
+        }
+        .image-container {
+            margin-top: 20px;
+            display: none;
+        }
+        .image-container img {
+            width: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Goodbye</h1>
+    <ul class="navbar">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="lesson.html">Lessons</a></li>
+        <li class="nav-item"><a href="Events.html">Events</a></li>
+        <li class="nav-item"><a href="Reflection.html">Reflection</a></li>
+        <li class="nav-item"><a href="Goodbye.html">Goodbye</a></li>
+    </ul>
+    
+    <div class="farewell-message" id="farewellMessage">
+        <p class="fade-in" style="animation-delay: 1s;">
+          Miss U, sorry kung minsan kami ay makulit, maingay at pasaway, pasensya na rin po kayo kapag kami ay nagiging sakit na po ng ulo niyo hehe, pero miss in all seriousness madami po akong natutunan sa isang taon ng pagsasama natin, di ko po makakalimutan yung mga tawa, yung mga clues kapag nagtetest at syempre tuwing hands-on, di ko rin makakalimutan na Kahit anong pasaway naming ay nagagawa niyo po pa rin po magtimpi. 
+        </p>
+        <p class="fade-in" style="animation-delay: 3s;">
+            Sa isang taon na po nito, marami po kayong nature hindi lang tungkol sa ICT kundi pati na rin sa buhay, masasabi ko po na Kahit anong hirap ng ICT ay favorite subject ko po ito Kahit ilang beses na po ako bumagsak sa mga hands-on test, quizzes, periodical ay di ko pa rin maggawang magalit sa subject, kasi ang dahilan lang naman kung bakit ako bumagsak ay di ako nagreview hehe.
+        <p class="fade-in" style="animation-delay: 5s;">
+            Maraming salamat po miss sa sa lahat ng sakripisyo niyo po sa amin mga efforts po na ibinibigay niyo maibigay lang sa amin ang pinaka best na edukayon.
+        <p class="fade-in" style="animation-delay: 7s;">
+            Maraming salamat po sa aming mabait, maganda at matalinong teacher, mamimiss ka po namin pag nag grade 10 na kami...
+        </p>
+        <p class="fade-in" style="animation-delay: 9s;">
+            Maraming Salamuch po talaga - From Ralph (Pinakamabait niyong estudyante)
+        </p>
+    </div>
+    
+    <button class="play-music" onclick="playMusic()">Play Sad Song</button>
+    
+    <audio id="farewellMusic" loop>
+        <source src="sad-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div class="image-container" id="imageContainer">
+        <img id="quotes.jpeg" src="quote.jpg" alt="Sad Image">
+    </div>
+    
+    <script>
+        function playMusic() {
+            let audio = document.getElementById("farewellMusic");
+            audio.play();
+            document.getElementById("imageContainer").style.display = "block";
+        }
+    </script>
+</body>
+</html>

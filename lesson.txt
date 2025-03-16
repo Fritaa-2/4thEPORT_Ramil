@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@700&display=swap');
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .nav-item {
+            list-style: none;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+            font-weight: 700;
+        }
+        .nav-item:hover {
+            color: #ffcc00;
+        }
+        .lessons-section {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+        }
+        .lesson {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px auto;
+            max-width: 600px;
+            transition: background 0.3s;
+        }
+        .lesson:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .lesson button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .lesson button:hover {
+            background: #e6b800;
+        }
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background: #222;
+            color: #ffcc00;
+            border-radius: 5px;
+            display: inline-block;
+            min-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lessons</h1>
+    <ul class="navbar">
+        <li class="nav-item" onclick="location.href='index.html'">Home</li>
+        <li class="nav-item">Lessons</li>
+        <li class="nav-item">Events</li>
+        <li class="nav-item">Reflection</li>
+        <li class="nav-item">Goodbye</li>
+    </ul>
+    
+    <div class="lessons-section">
+        <h2>My Lessons</h2>
+        <div class="lesson">
+            <p>Lesson: Loops</p>
+            <button onclick="runLoop()">Run Example</button>
+            <div class="output" id="loopOutput"></div>
+        </div>
+        <div class="lesson">
+            <p>Lesson: Events</p>
+            <button id="eventButton">Click Me</button>
+            <div class="output" id="eventOutput"></div>
+        </div>
+        <div class="lesson">
+            <p>Lesson: If-Else Statements</p>
+            <button onclick="checkNumber()">Check Number</button>
+            <div class="output" id="ifElseOutput"></div>
+        </div>
+        <div class="lesson">
+            <p>Lesson: Switch Statements</p>
+            <button onclick="switchExample()">Switch Example</button>
+            <div class="output" id="switchOutput"></div>
+        </div>
+        <div class="lesson">
+            <p>Lesson: Functions</p>
+            <button onclick="showFunction()">Run Function</button>
+            <div class="output" id="functionOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        function runLoop() {
+            let output = "";
+            for(let i = 1; i <= 5; i++) {
+                output += "Number " + i + " ";
+            }
+            document.getElementById("loopOutput").innerText = output;
+        }
+
+        document.getElementById("eventButton").addEventListener("click", function() {
+            document.getElementById("eventOutput").innerText = "Button Clicked!";
+        });
+
+        function checkNumber() {
+            let num = Math.floor(Math.random() * 10);
+            let result = num % 2 === 0 ? "Even Number: " + num : "Odd Number: " + num;
+            document.getElementById("ifElseOutput").innerText = result;
+        }
+
+        function switchExample() {
+            let day = new Date().getDay();
+            let message;
+            switch(day) {
+                case 0: message = "It's Sunday!"; break;
+                case 1: message = "It's Monday!"; break;
+                case 2: message = "It's Tuesday!"; break;
+                case 3: message = "It's Wednesday!"; break;
+                case 4: message = "It's Thursday!"; break;
+                case 5: message = "It's Friday!"; break;
+                case 6: message = "It's Saturday!"; break;
+                default: message = "Unknown day!";
+            }
+            document.getElementById("switchOutput").innerText = message;
+        }
+
+        function showFunction() {
+            function greet(name) {
+                return "Hello, " + name + "!";
+            }
+            document.getElementById("functionOutput").innerText = greet("Student");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@700&display=swap');
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .nav-item {
+            list-style: none;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+            font-weight: 700;
+        }
+        .nav-item:hover {
+            color: #ffcc00;
+        }
+        .nav-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .lessons-section {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+        }
+        .lesson {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px auto;
+            max-width: 600px;
+            transition: background 0.3s;
+        }
+        .lesson:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .code-box {
+            background: #222;
+            color: #ffcc00;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+        .interactive {
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff;
+            color: #000;
+            border-radius: 5px;
+            display: inline-block;
+            min-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lessons</h1>
+    <ul class="navbar">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="#">Lessons</a></li>
+        <li class="nav-item"><a href="Events.html">Events</a></li>
+        <li class="nav-item"><a href="Reflection.html">Reflection</a></li>
+        <li class="nav-item"><a href="Goodbye.html">Goodbye</a></li>
+    </ul>
+    
+    <div class="lessons-section">
+        <h2>My Lessons</h2>
+        
+        <div class="lesson">
+            <h3>Lesson: Loops</h3>
+            <p>Loops allow repeating a block of code until a condition is met.</p>
+            <div class="code-box">for (let i = 1; i <= 5; i++) { console.log("Number " + i); }</div>
+            <button onclick="runLoop()">Run Example</button>
+            <div class="interactive" id="loopOutput"></div>
+        </div>
+        
+        <div class="lesson">
+            <h3>Lesson: Events</h3>
+            <p>Events allow interaction with web pages.</p>
+            <div class="code-box">document.getElementById("btn").addEventListener("click", function() { alert("Button clicked!"); });</div>
+            <button id="eventButton">Click Me</button>
+            <div class="interactive" id="eventOutput"></div>
+        </div>
+        
+        <div class="lesson">
+            <h3>Lesson: If-Else Statements</h3>
+            <p>If-Else statements help make decisions in code.</p>
+            <div class="code-box">let age = 20;
+if (age >= 18) {
+    console.log("You are an adult.");
+} else {
+    console.log("You are a minor.");
+}</div>
+            <button onclick="checkAge()">Check Age</button>
+            <div class="interactive" id="ifElseOutput"></div>
+        </div>
+        
+        <div class="lesson">
+            <h3>Lesson: Switch Statements</h3>
+            <p>Switch statements allow handling multiple conditions.</p>
+            <div class="code-box">switch(day) { case 1: console.log("Monday"); break; case 2: console.log("Tuesday"); break; default: console.log("Other day"); }</div>
+            <button onclick="switchExample()">Switch Example</button>
+            <div class="interactive" id="switchOutput"></div>
+        </div>
+        
+        <div class="lesson">
+            <h3>Lesson: Functions</h3>
+            <p>Functions are reusable blocks of code.</p>
+            <div class="code-box">function greet(name) { return "Hello, " + name + "!"; }</div>
+            <button onclick="showFunction()">Run Function</button>
+            <div class="interactive" id="functionOutput"></div>
+        </div>
+    </div>
+    
+    <script>
+        function runLoop() {
+            let output = "";
+            for(let i = 1; i <= 5; i++) {
+                output += "Number " + i + " ";
+            }
+            document.getElementById("loopOutput").innerText = output;
+        }
+
+        document.getElementById("eventButton").addEventListener("click", function() {
+            document.getElementById("eventOutput").innerText = "Button Clicked!";
+        });
+
+        function checkAge() {
+            let age = Math.floor(Math.random() * 30);
+            let result = age >= 18 ? "You are an adult." : "You are a minor.";
+            document.getElementById("ifElseOutput").innerText = result;
+        }
+
+        function switchExample() {
+            let day = new Date().getDay();
+            let message;
+            switch(day) {
+                case 0: message = "It's Sunday!"; break;
+                case 1: message = "It's Monday!"; break;
+                case 2: message = "It's Tuesday!"; break;
+                case 3: message = "It's Wednesday!"; break;
+                case 4: message = "It's Thursday!"; break;
+                case 5: message = "It's Friday!"; break;
+                case 6: message = "It's Saturday!"; break;
+                default: message = "Unknown day!";
+            }
+            document.getElementById("switchOutput").innerText = message;
+        }
+
+        function showFunction() {
+            function greet(name) {
+                return "Hello, " + name + "!";
+            }
+            document.getElementById("functionOutput").innerText = greet("Student");
+        }
+    </script>
+</body>
+</html>
