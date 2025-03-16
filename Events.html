@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Gallery</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .nav-item {
+            list-style: none;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+            font-weight: 700;
+        }
+        .nav-item:hover {
+            color: #ffcc00;
+        }
+        .nav-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .gallery img, .gallery video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover, .gallery video:hover {
+            transform: scale(1.05);
+        }
+        .album {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Events Gallery</h1>
+    <p>Click on an event image or video to share your thoughts!</p>
+  <ul class="navbar">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="lesson.html">Lessons</a></li>
+        <li class="nav-item"><a href="#">Events</a></li>
+        <li class="nav-item"><a href="Reflection.html">Reflection</a></li>
+        <li class="nav-item"><a href="Goodbye.html">Goodbye</a></li>
+    </ul>
+    
+    <div class="album">
+        <h2>Battle of The Bands</h2>
+        <div class="gallery">
+            <img src="battle1 (2).jpg" alt="Battle of The Bands 1" onclick="getThoughts('Battle of The Bands')">
+            <video controls onclick="getThoughts('Battle of The Bands')">
+                <source src="battle2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
+    <div class="album">
+        <h2>English One Act Play</h2>
+        <div class="gallery">
+            <video controls onclick="getThoughts('English One Act Play')">
+                <source src="oneactplay.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+           <video controls onclick="getThoughts('English One Act Play')">
+                <source src="actplay1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+    </div>
+    
+    <div class="album">
+        <h2>MAPEH Month</h2>
+        <div class="gallery">
+            <img src="mapeh1.jpg" alt="MAPEH Month 1" onclick="getThoughts('MAPEH Month')">
+            <img src="mapeh2.png" alt="MAPEH Month 2" onclick="getThoughts('MAPEH Month')">
+        </div>
+    </div>
+    
+    <div class="album">
+        <h2>Research Fair</h2>
+        <div class="gallery">
+            <img src="research1.jpg" alt="Research Fair 1" onclick="getThoughts('Research Fair')">
+            <img src="research2.jpg" alt="Research Fair 2" onclick="getThoughts('Research Fair')">
+        </div>
+    </div>
+    
+    <div class="album">
+        <h2>Valentine's Day</h2>
+        <div class="gallery">
+            <img src="valentines.jpg" alt="Valentine's Day 1" onclick="getThoughts('Valentine's Day')">
+            <img src="valentines1.jpg" alt="Valentine's Day 2" onclick="getThoughts('Valentine's Day')">
+        </div>
+    </div>
+    
+    <script>
+        function getThoughts(eventName) {
+            let thoughts = prompt("What are your thoughts on " + eventName + "?");
+            if (thoughts) {
+                alert("Thank you for your feedback on " + eventName + "!");
+            }
+        }
+    </script>
+</body>
+</html>
